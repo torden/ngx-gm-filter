@@ -7,6 +7,8 @@
 #include <ngx_core.h>
 #include <ngx_http.h>
 #include <magick/api.h>
+#include <magick/common.h>
+#include <magick/memory.h>
 
 #define NGX_HTTP_GM_START     0
 #define NGX_HTTP_GM_IMAGE_READ      1
