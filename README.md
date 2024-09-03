@@ -2,7 +2,6 @@ ngx-gm-filter
 =============
 
 ngx-gm-filter - Another image filter based GraphicsMagick.
-[![Analytics](https://ga-beacon.appspot.com/UA-5174134-2/ngx-gm-filter/readme)](https://github.com/igrigorik/ga-beacon)
 
 Status
 ======
@@ -13,7 +12,7 @@ This module is under active development and is production ready.
 Version
 =======
 
-This document describes ngx-gm-filter [v0.2.0](https://github.com/liseen/ngx-gm-filter/tags).
+This document describes ngx-gm-filter [v0.2.1](https://github.com/torden/ngx-gm-filter/tags).
 
 
 Synopsis
@@ -95,29 +94,44 @@ Install GraphicsMagick
 
 Install GraphicsMagick with jpeg and png
 
-    sudo apt-get install libjpeg-dev libpng-dev
-    wget ftp://ftp.graphicsmagick.org/pub/GraphicsMagick/1.3/GraphicsMagick-1.3.16.tar.gz
-    tar xzvf GraphicsMagick-1.3.16.tar.gz
-    cd GraphicsMagick-1.3.16
-    ./configure --with-x=no --with-jpeg=yes --with-png=yes
-    make
-    sudo make install
+```bash
+#Visit to https://sourceforge.net/projects/graphicsmagick/files/graphicsmagick/
+
+tar xzvf GraphicsMagick-1.3.xx.tar.gz
+cd GraphicsMagick-1.3.xx
+./configure --with-x=no --with-jpeg=yes --with-png=yes
+make
+make install
+```
 
 Install ngx-gm-filter
 ------------
 
 Build the source with this module:
+```
+git clone https://github.com/torden/ngx-gm-filter
+cd ngx-gm-filter
 
-    wget 'http://nginx.org/download/nginx-1.2.1.tar.gz'
-    tar -xzvf nginx-1.2.1.tar.gz
-    cd nginx-1.2.1/
 
-    ./configure --prefix=/opt/nginx \
-				--add-module=path/to/ngx-gm-filter
+./init.sh
 
-    make -j2
-    sudo make install
+wget 'http://nginx.org/download/nginx-1.27.1.tar.gz'
+tar -xzvf nginx-1.27.1.tar.gz
+cd nginx-1.27.1/
 
+
+# Static Module
+./configure --prefix=/opt/nginx \
+--add-module=path/to/ngx-gm-filter
+
+# Dynamic Module
+./configure --prefix=/opt/nginx \
+--add-dynamic-module=path/to/ngx-gm-filter
+
+
+make -j2
+sudo make install
+```
 
 Copyright and License
 =====================
